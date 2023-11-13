@@ -1,0 +1,45 @@
+// .carousel{
+//     &-container{
+//         display: flex;
+//         width: 100%;
+//         max-width: 1920px;
+//         overflow: hidden;
+//         &__item{
+//         }
+//         &__image{
+//             max-width: 100%;
+//         }
+//     }
+// }
+
+@keyframes slide{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translate(calc(-100px * 3));
+  }
+}
+
+// .carousel {
+//   display: flex;
+//   transition: all 0.3s ease;
+// }
+
+// .carousel-item {
+//   flex: 1;
+//   cursor: pointer;
+// }
+
+// .carousel-item:hover{
+//   flex: 5;
+// }
+
+// .img{
+//   max-width: 100%;
+// }
+.slider-img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}

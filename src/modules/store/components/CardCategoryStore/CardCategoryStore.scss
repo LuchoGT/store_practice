@@ -1,0 +1,12 @@
+.card-category {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border: 1px solid red;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 7px 15px 0 rgba(0,0,0,.2);
+  background-color: $main-color;
+}

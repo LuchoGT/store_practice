@@ -1,0 +1,80 @@
+.sales{
+    background-color: $main-color;
+    &-title{
+        text-align: center;
+    }
+    &-container{
+        width: 100%;
+        padding: .5rem;
+        & .sales-items{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(160px,2fr));
+            gap: .5rem;
+            &__item{
+              place-self: center;
+            }
+            &__all{
+             
+            }
+        }
+        & .sales-all{
+          margin-top: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a{
+            padding: .5rem;
+            border-radius: 5px;
+            border: 1px solid white;
+            color: white;
+            width: 10rem;
+            text-align: center;
+          }
+        }
+    }
+}
+
+  // .card2{
+  //   width: 200px;
+  //   height: 300px;
+  //   overflow: hidden;
+  //   position: relative;
+  //   cursor: pointer;
+  //   border-radius: 20px;
+  //   margin-top: 4rem;
+  // }
+
+  // .card2 img{
+  //   height: 100%;
+  //   width: 100%;
+  // }
+
+  // .card2:hover .details2{
+  //   opacity: 1;
+  //   height: 100%;
+  // }
+
+  // .details2{
+  //   position: absolute;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   justify-content: center;
+  //   bottom: 0;
+  //   width: 100%;
+  //   height: 0%;
+  //   // background-color: rgba(0, 0, 0, .7);
+  //   background-color: white;
+  //   opacity: 0;
+  //   transition: .5s ease;
+  // }
+
+  // .details2, p{
+  //   color: green;
+  // }
+
+.card--loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
