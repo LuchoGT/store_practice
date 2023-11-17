@@ -4,10 +4,12 @@ import { CardStore } from "../CardStore/CardStore";
 import { useApi } from "../../hook/useApi";
 import { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
+import { useApiPlatzi } from "../../hook/useApiPlatzi";
 export const SalesStore = () => {
-  const { characters, loading: initialLoading } = useApi();
+  // const { characters, loading: initialLoading } = useApi();
+  const { characters, loading: initialLoading } = useApiPlatzi();
   const [loading, setLoading] = useState(true);
-  console.log(characters);
+  // console.log(characters);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -22,8 +24,8 @@ export const SalesStore = () => {
       <h1 className="sales-title">Titulo 1</h1>
       <div className="sales-container">
         <ul className="sales-items">
-          {characters?.slice(0, 7).map((item, index) => (
-            <li className="sales-items__item" key={index}>
+          {characters.slice(0, 7).map((item) => (
+            <li className="sales-items__item" key={item.id}>
               {loading ? (
                 <li className="card card--loading">
                   <Oval
@@ -43,6 +45,7 @@ export const SalesStore = () => {
                 <CardStore {...item} />
               )}
             </li>
+            // <CardStore key={item.id} {...item}/>
           ))}
         </ul>
         <div className="sales-all">

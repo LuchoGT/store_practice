@@ -1,4 +1,4 @@
-import { IconSearch, IconX } from '@tabler/icons-react';
+import { IconFilterQuestion, IconSearch, IconX } from '@tabler/icons-react';
 import './SearchStore.scss';
 import { useApi } from '../../hook/useApi';
 import { useForm } from 'react-hook-form';
@@ -39,8 +39,18 @@ export const SearchStore = ({openSearch}:props) => {
     : [];
 
     console.log(filteredCharacters);
+
+    const noResultsMessage = value.length > 0 && filteredCharacters.length === 0 ? (
+      <div className='search-null'>
+        <IconFilterQuestion/>
+        <p>No hay resultados</p>
+      </div>
+    ) : null;
     
 
+    const resultsCountMessage = filteredCharacters.length > 0 ? (
+      <div>{`Se encontraron ${filteredCharacters.length} resultados`}</div>
+    ) : null;
   return (
     <div className="search">
       <div className='search-container'>
@@ -56,15 +66,20 @@ export const SearchStore = ({openSearch}:props) => {
         <IconX onClick={openSearch} className='search-container__icon search-container__icon--close'/>
       </div>
       <div className='search-data'>
-        {
-          filteredCharacters.slice(0,6).map((item)=>(
-            <>
-            <CardSearchStore {...item}/>
-            </>
+        { 
+          noResultsMessage||
+          filteredCharacters.slice(0,6).map((item,index)=>(
+              <>
+              <CardSearchStore {...item} key={index}/>
+              </>
           ))
         }
+        {
+          filteredCharacters.length > 0 ? 
+            <div className='search-button'>{`Mostrar los ${filteredCharacters.length} resultados`}</div>
+          : null
+        }
       </div>
-      <div>Mostrar los {filteredCharacters.length} resultados</div>
     </div>
   )
 }

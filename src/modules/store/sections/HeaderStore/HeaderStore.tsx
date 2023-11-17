@@ -3,6 +3,7 @@ import { useState} from "react";
 import { SearchStore } from '../../components/SearchStore/SearchStore';
 import './HeaderStore.scss';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../hook/useCart';
 
 
 export const HeaderStore = () => {
@@ -13,6 +14,8 @@ export const HeaderStore = () => {
   const openSearch=()=>{
     setIsOpenSearch(!isOpenSearch);
   }
+
+  const {cartQuantity} = useCart();
 
   return (
     <header className='header'>
@@ -34,7 +37,12 @@ export const HeaderStore = () => {
               :
               <SearchStore openSearch={openSearch}/>
             }
-            <IconShoppingCart className='nav-icon'/>
+            <div>
+            <Link to='/checkout'>
+              <IconShoppingCart className='nav-icon'/>
+              {cartQuantity}
+            </Link>
+            </div>
             <Link to='login'>
               <IconUser className='nav-icon'/>
             </Link>
